@@ -589,10 +589,14 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(135deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, 0) 55%),
-        linear-gradient(315deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, 0) 60%);
-      clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);
-      opacity: .7;
+        linear-gradient(135deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, 0) 50%),
+        linear-gradient(315deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, 0) 55%),
+        radial-gradient(circle at 30% 30%, rgba(93, 134, 255, .05), transparent 40%),
+        radial-gradient(circle at 70% 70%, rgba(255, 92, 146, .04), transparent 45%);
+      clip-path: polygon(0 0, 100% 0, 100% 65%, 80% 100%, 20% 85%, 0 100%);
+      opacity: .8;
+      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, .2));
+      animation: cutPulse 8s ease-in-out infinite;
     }
 
     .s7 .sheet {
@@ -627,6 +631,20 @@
 
       50% {
         transform: translate(-50%, -50%) rotate(-6deg) translateY(10px)
+      }
+    }
+
+    @keyframes cutPulse {
+
+      0%,
+      100% {
+        opacity: .8;
+        transform: scale(1) rotate(0deg);
+      }
+
+      50% {
+        opacity: .9;
+        transform: scale(1.02) rotate(1deg);
       }
     }
 
@@ -764,6 +782,7 @@
       .type span,
       .frame,
       .sheet,
+      .cut,
       .lens,
       .spot,
       .shards {
